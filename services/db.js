@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 const {mongoUri} = require("../constants");
 
 if (process.env.NODE_ENV !== 'TEST') {
-
     mongoose.connect(mongoUri, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
