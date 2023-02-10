@@ -1,5 +1,7 @@
 const express = require('express');
 
+require('./services/db');
+
 const app = express();
 
 // Middlewares
