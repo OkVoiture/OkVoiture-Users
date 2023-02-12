@@ -1,20 +1,5 @@
 const mongoose = require("mongoose");
-
-const voitureSchema = new mongoose.Schema({
-    marque: {
-        required: true,
-        type: String,
-    },
-    modele: {
-        required: true,
-        type: String,
-    },
-    annee: {
-        required: true,
-        type: Number,
-    }
-})
-
+const voitureSchema = require("./voitureSchema");
 
 const postSchema = new mongoose.Schema({
     nomLouer: {
@@ -41,6 +26,6 @@ const postSchema = new mongoose.Schema({
         required: false,
         type: Number,
     }
-})
+});
 
 module.exports = mongoose.model("Post", postSchema);
