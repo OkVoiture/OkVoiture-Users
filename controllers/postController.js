@@ -1,7 +1,7 @@
 const ApiError = require("../errors/apiError");
 
 const Post = require("../models/postModel");
-const Voiture = require("../models/voitureModel")
+const Voiture = require("../models/voitureModel");
 
 const createPost = async (req, res, next) => {
     try {
