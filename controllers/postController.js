@@ -15,7 +15,6 @@ const createPost = async (req, res, next) => {
             modele,
             annee
         });
-        console.log(newVoiture);
         const newPost = new Post({
             nomLouer: nom,
             email,
@@ -23,8 +22,8 @@ const createPost = async (req, res, next) => {
             ville,
             prix,
             photo,
+            date: Date.now(),
         });
-        console.log(newPost);
 
         await newPost.save().catch(_ => next(ApiError.internalError(`Database Error`)));
 
