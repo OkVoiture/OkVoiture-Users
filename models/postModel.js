@@ -25,6 +25,10 @@ const postSchema = new mongoose.Schema({
     photo: {
         required: false,
         type: Number,
+    },
+    date: {
+        required: true,
+        type: Date,
     }
 });
 
