@@ -6,27 +6,24 @@ const Voiture = require("../models/voitureModel");
 const createPost = async (req, res, next) => {
     try {
         //Validate params
-        console.log("query: ", req.query);
-
         const {nom, email, marque, modele, annee, ville, prix, photo} =
             req.query;
-        const newVoiture = new Voiture({
+        const newVoiture = await Voiture.create({
             marque,
             modele,
             annee
         });
-        const newPost = new Post({
+        const newPost = await Post.create({
             nomLouer: nom,
             email,
-            voiture: newVoiture,
+            voiture: newVoiture._id,
             ville,
             prix,
             photo,
             date: Date.now(),
-        });
+        }).catch(e => console.log("error: ", e));
 
-        await newPost.save().catch(_ => next(ApiError.internalError(`Database Error`)));
-
+        await newPost.populate("voiture");
         res.status(201).send({data: newPost});
 
     } catch (e) {
