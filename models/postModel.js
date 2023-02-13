@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
-const voitureSchema = require("./voitureSchema");
+const {Schema} = require("mongoose");
 
-const postSchema = new mongoose.Schema({
+const postSchema = mongoose.Schema({
     nomLouer: {
         required: true,
         type: String,
@@ -12,7 +12,8 @@ const postSchema = new mongoose.Schema({
     },
     voiture: {
         required: true,
-        type: voitureSchema,
+        type: Schema.Types.ObjectId,
+        ref: 'Voiture',
     },
     ville: {
         required: true,
@@ -24,7 +25,7 @@ const postSchema = new mongoose.Schema({
     },
     photo: {
         required: false,
-        type: Number,
+        type: String,
     },
     date: {
         required: true,
