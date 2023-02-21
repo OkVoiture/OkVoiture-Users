@@ -25,7 +25,8 @@ const postSchema = mongoose.Schema({
     },
     photo: {
         required: false,
-        type: String,
+        data: Buffer,
+        contentType: String,
     },
     date: {
         required: true,
